@@ -13,7 +13,8 @@ import lombok.NoArgsConstructor;
 public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long departmentId;
-    private String name;
+    private Long id;
+    private String depId;
+    private String depName;
     private String description;
 }
