@@ -31,7 +31,11 @@ public class DepartmentImpl implements DepartmentService {
 
     @Override
     public List<DepartmentDto> getAllDepartment() {
-        List<Department> allDepartments = departmentRepo.findAll();
-        return modelMapper.map(allDepartments,new TypeToken<List<DepartmentDto>>(){}.getType());
+        return modelMapper.map(departmentRepo.findAll(),new TypeToken<List<DepartmentDto>>(){}.getType());
+    }
+
+    @Override
+    public DepartmentDto getDepartmentById(String depId) {
+        return modelMapper.map(departmentRepo.findByDepId(depId), DepartmentDto.class);
     }
 }

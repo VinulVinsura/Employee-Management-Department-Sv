@@ -25,7 +25,12 @@ public class DepartmentController {
     // get all departments
     @GetMapping("/get-all")
     public ResponseEntity<List<DepartmentDto>> getAllDepartment(){
-
         return ResponseEntity.ok(departmentService.getAllDepartment());
+    }
+
+    // get department by departmentId
+    @GetMapping("/get-by-depId/{depId}")
+    public ResponseEntity<DepartmentDto> getDepartmentById(@PathVariable String depId){
+        return ResponseEntity.ok(departmentService.getDepartmentById(depId));
     }
 }
