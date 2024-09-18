@@ -9,4 +9,5 @@ public interface DepartmentRepo extends JpaRepository<Department,Long> {
 
     boolean existsByDepId(String id);
     Department findByDepId(String depId);
+
 }

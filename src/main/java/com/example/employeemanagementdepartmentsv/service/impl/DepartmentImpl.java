@@ -38,4 +38,13 @@ public class DepartmentImpl implements DepartmentService {
     public DepartmentDto getDepartmentById(String depId) {
         return modelMapper.map(departmentRepo.findByDepId(depId), DepartmentDto.class);
     }
+
+    @Override
+    public String deleteById(Long id) {
+        if (departmentRepo.existsById(id)){
+            departmentRepo.deleteById(id);
+            return "Deleted...";
+        }
+        return "Error";
+    }
 }

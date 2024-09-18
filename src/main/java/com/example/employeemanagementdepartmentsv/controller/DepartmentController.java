@@ -33,4 +33,10 @@ public class DepartmentController {
     public ResponseEntity<DepartmentDto> getDepartmentById(@PathVariable String depId){
         return ResponseEntity.ok(departmentService.getDepartmentById(depId));
     }
+
+    // department delete by Id
+    @DeleteMapping("/delete-byId/{id}")
+    public ResponseEntity<String> deleteById(@PathVariable Long id){
+       return ResponseEntity.ok(departmentService.deleteById(id));
+    }
 }
