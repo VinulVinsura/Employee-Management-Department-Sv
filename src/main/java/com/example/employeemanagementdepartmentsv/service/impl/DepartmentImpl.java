@@ -6,7 +6,10 @@ import com.example.employeemanagementdepartmentsv.repository.DepartmentRepo;
 import com.example.employeemanagementdepartmentsv.service.DepartmentService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -24,5 +27,11 @@ public class DepartmentImpl implements DepartmentService {
 
         return "Department already exists..";
 
+    }
+
+    @Override
+    public List<DepartmentDto> getAllDepartment() {
+        List<Department> allDepartments = departmentRepo.findAll();
+        return modelMapper.map(allDepartments,new TypeToken<List<DepartmentDto>>(){}.getType());
     }
 }
