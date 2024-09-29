@@ -29,4 +29,13 @@ public class RoleServiceImpl implements RoleService {
     public List<RoleDto> getAllRoles() {
        return modelMapper.map(roleRepo.findAll(),new TypeToken<List<RoleDto>>(){}.getType());
     }
+
+    @Override
+    public String deleteRoleById(Long id) {
+        if (roleRepo.existsById(id)){
+            roleRepo.deleteById(id);
+            return "Delete success.";
+        }
+        return "Invalid Id.";
+    }
 }
